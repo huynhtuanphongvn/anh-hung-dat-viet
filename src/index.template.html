@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anh Hùng Đất Việt</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e6edf5;--ink:#14202e;--card:#fff;--ov:rgba(236,242,250,.93);--sub:#4b5b70;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1320;--ink:#e8eef7;--card:#17233a;--ov:rgba(8,14,24,.92);--sub:#9fb0c8}}
+:root[data-theme="dark"]{--bg:#0b1320;--ink:#e8eef7;--card:#17233a;--ov:rgba(8,14,24,.92);--sub:#9fb0c8}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font-family:"Baloo 2",system-ui,sans-serif;overflow:hidden}
+#w{position:relative;height:100%}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
+.ov{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px;background:var(--ov);overflow:auto;text-align:center}
+.ov.on{display:flex}
+h1{margin:0;font-size:clamp(28px,6vw,46px);line-height:1.05}
+p{margin:0;color:var(--sub);max-width:46ch;line-height:1.35}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;width:100%;max-width:660px}
+button{font:inherit;color:var(--ink);cursor:pointer}
+.c{background:var(--card);border:2px solid var(--k);border-radius:16px;padding:14px 10px;display:flex;flex-direction:column;gap:4px;align-items:center;transition:transform .12s}
+.c:hover,.c:focus-visible{transform:translateY(-3px);outline:3px solid var(--k);outline-offset:2px}
+.c em{font-style:normal;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--k);color:#111;margin:2px 0}
+.c b{font-size:20px}.c i{font-size:38px;font-style:normal}.c span{font-size:13px;color:var(--sub);line-height:1.25}
+.u{width:min(360px,100%);text-align:left;align-items:flex-start;padding:12px 16px}
+.go{background:var(--ink);color:var(--bg);border:0;border-radius:12px;padding:10px 22px;font-size:18px;font-weight:700}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.pt{--s:64px;width:var(--s);height:var(--s);border-radius:50%;border:3px solid var(--k);display:grid;place-items:center;font-size:calc(var(--s)*.5);box-shadow:0 0 14px var(--k)}.u{width:min(430px,100%)}.u strong{font-size:15px}button:disabled{opacity:.4;cursor:not-allowed}.c.off{opacity:.4}.ov{justify-content:safe center}
+.pt{display:block;width:var(--s);height:auto;border-radius:12px;overflow:hidden;line-height:0;border:3px solid var(--k);box-shadow:0 0 14px var(--k);background:#e7d3a6;font-size:inherit}.pt svg{display:block;width:100%;height:auto}.pt.lg{animation:gl 2.2s infinite alternate}@keyframes gl{to{box-shadow:0 0 28px var(--k)}}
+.c{background:linear-gradient(180deg,var(--card),color-mix(in srgb,var(--card) 82%,var(--k)))}
+#menu{flex-direction:row;align-items:center;justify-content:space-between;text-align:left;padding:24px 4vw;color:#f4efe0;background:linear-gradient(90deg,rgba(6,10,18,.55),rgba(6,10,18,.08) 45%,rgba(6,10,18,.35))}#menu p{color:#e6dec8;text-shadow:0 1px 4px #000}
+#ttl{align-self:flex-start;max-width:46vw}#ttl h1{font-family:"Noto Serif",Georgia,serif;font-size:clamp(34px,7vw,68px);background:linear-gradient(#fff1c2,#e0a93a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 3px 6px rgba(0,0,0,.6))}#ttl small{color:#f1e6c4;font-size:15px;text-shadow:0 1px 4px #000}
+#side{width:250px;display:flex;flex-direction:column;gap:14px;padding:16px;border-radius:18px;background:rgba(10,14,24,.74);border:1px solid rgba(224,169,58,.5);backdrop-filter:blur(6px)}#bar{justify-content:space-between}#bar b{padding:4px 12px;border-radius:99px;background:rgba(0,0,0,.45);color:#ffe9a8;font-size:16px}
+#nav{display:flex;flex-direction:column;gap:10px}#nav .go{background:linear-gradient(180deg,#b3261e,#7d1812);color:#ffe9a8;border:1px solid #e0a93a;text-align:left;font-size:18px}.hint{font-size:12px}
+@media(max-width:560px){#side{width:180px;padding:12px}#ttl{max-width:48vw}}
+.dp{display:grid;grid-template-columns:200px 1fr;gap:18px;width:min(780px,100%);text-align:left}.dl{display:flex;flex-direction:column;align-items:center;gap:8px}.pill{background:var(--k);color:#111;font-weight:700;padding:3px 14px;border-radius:99px}.rl{color:var(--sub);font-size:14px;text-align:center}
+.nm{font-family:"Noto Serif",Georgia,serif;font-size:34px;font-weight:700;line-height:1}.tt{color:var(--k);font-weight:700;margin:4px 0 10px}.bx{background:var(--card);border:1px solid rgba(127,127,127,.3);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.st{display:grid;grid-template-columns:104px 1fr 62px;gap:10px;align-items:center;padding:3px 0}.st span{font-weight:700}.st u{display:block;height:8px;border-radius:9px;background:rgba(127,127,127,.25);overflow:hidden}.st i{display:block;height:100%;border-radius:9px}.st strong{text-align:right;font-size:19px}
+.sk{font-size:14px;line-height:1.4;padding:4px 0;color:var(--sub)}.sk b{display:block;color:var(--k);font-size:15px}.bio{font-family:"Noto Serif",Georgia,serif;font-size:15px;line-height:1.65;text-align:justify}.bio h3{margin:0 0 6px;font-family:inherit;color:var(--k)}
+@media(max-width:640px){.dp{grid-template-columns:1fr}}
+</style></head><body>
+<div id="w"><canvas id="c"></canvas>
+<div class="ov on" id="menu"><div id="ttl"><h1>Anh Hùng<br>Đất Việt</h1><small>Sống sót · Lập chiến công · Sưu tầm danh tướng</small></div><div id="side">
+
+<div class="row" id="bar"></div><div class="row" id="nav"></div>
+<p id="best"></p><p class="hint">WASD / mũi tên hoặc kéo ngón tay để di chuyển</p></div></div>
+<div class="ov" id="scr"></div>
+<div class="ov" id="lvl"><h1>Lên cấp!</h1><p>Chọn một nâng cấp.</p><div class="row" id="ups" style="flex-direction:column;align-items:center"></div></div>
+<div class="ov" id="over"><h1>Hết máu!</h1><p id="stat"></p><div class="row"><button class="go" id="again">Chơi lại</button><button class="go" id="pick">Đổi nhân vật</button></div></div>
+</div>
+<script>
+/*__JS__*/
+</script></body></html>

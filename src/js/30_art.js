@@ -1,0 +1,10 @@
+/*== MODULE 30_art | owner:B | art() ve chan dung SVG, por() ==*/
+function art(c){const s=SK[c.id]||[2,1,1],h=s[0],b=s[1],a=s[2],K='#2b1d12',S='#e8caa0',L=(d,f,w)=>'<path d="'+d+'" fill="'+(f||'none')+'" stroke="'+K+'" stroke-width="'+(w||2)+'" stroke-linecap="round" stroke-linejoin="round"/>';
+let g='<svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="150" fill="#e7d3a6"/>'+L('M4 112L30 82L50 102L75 72L116 110V146H4Z','#cdb98a',1)+L('M6 6H114V144H6Z','none',2)+L('M14 146Q16 108 48 102H72Q104 108 106 146Z',c.col);
+g+=a?L('M30 114L60 130L90 114M24 130L60 146L96 130','none',1.5):L('M48 102L60 126L72 102','#f2e6c9');
+g+=L('M53 88H67V106H53Z',S)+'<ellipse cx="60" cy="68" rx="20" ry="24" fill="'+S+'" stroke="'+K+'" stroke-width="2"/>'+L('M47 63Q52 59 57 63M63 63Q68 59 73 63M51 71H56M64 71H69M60 66V76M54 85Q60 88 66 85','none',2);
+if(b==1)g+=L('M43 74Q46 98 60 100Q74 98 77 74Q70 88 60 88Q50 88 43 74Z',K,1);
+if(b==2)g+=L('M42 72Q44 114 60 122Q76 114 78 72Q70 90 60 90Q50 90 42 72Z',K,1);
+const HT=[L('M44 54Q60 30 76 54V58H44Z',K)+L('M28 50H46M74 50H92','none',4),L('M42 58Q42 28 60 28Q78 28 78 58Q60 48 42 58Z',K),L('M40 58Q42 28 60 26Q78 28 80 58Z','#9a9a9a')+L('M60 26V12','none',2)+'<circle cx="60" cy="11" r="5" fill="#c0392b"/>',L('M40 50H80L76 32H44Z','#d9a72e')+L('M44 50V62M52 50V60M68 50V60M76 50V62','none',1.5),L('M40 64Q40 30 60 30Q80 30 80 64Q72 44 60 44Q48 44 40 64Z',K)+'<circle cx="60" cy="24" r="8" fill="'+K+'"/>'+L('M50 22L72 28','none',2),L('M40 62Q40 32 60 32Q80 32 80 62Q72 46 60 46Q48 46 40 62Z',K)+L('M40 52Q60 44 80 52V58Q60 50 40 58Z','#c0392b')+'<circle cx="60" cy="27" r="6" fill="'+K+'"/>'];
+return g+HT[h]+'<rect x="90" y="122" width="17" height="17" fill="#b3261e"/><text x="98.5" y="135" font-size="12" text-anchor="middle" fill="#f6e7c8">'+'文儒將王女勇'[h]+'</text></svg>'}
+const por=(c,s)=>'<div class="pt'+(c.rt==3?' lg':'')+'" style="--k:'+RT[c.rt].c+';--s:'+s+'px'+(c.n==='???'?';filter:brightness(0)':'')+'">'+art(c)+'</div>';
